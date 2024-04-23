@@ -20,23 +20,7 @@ public class EmployeeConverter {
      */
     public static Employee toModel(EmployeeView ev) {
 
-        return new Employee(
-                ev.getId(),
-                ev.getCode(),
-                ev.getName(),
-                ev.getPassword(),
-                ev.getAdminFlag() == null
-                        ? null
-                        : ev.getAdminFlag() == AttributeConst.ROLE_ADMIN.getIntegerValue()
-                                ? JpaConst.ROLE_ADMIN
-                                : JpaConst.ROLE_GENERAL,
-                ev.getCreatedAt(),
-                ev.getUpdatedAt(),
-                ev.getDeleteFlag() == null
-                        ? null
-                        : ev.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()
-                                ? JpaConst.EMP_DEL_TRUE
-                                : JpaConst.EMP_DEL_FALSE);
+        return new Employee();
     }
 
     /**

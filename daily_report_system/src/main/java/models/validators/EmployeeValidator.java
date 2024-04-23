@@ -32,13 +32,13 @@ public class EmployeeValidator {
         }
 
         //氏名のチェック
-        String nameError = validateName(ev.getName());
+        String nameError = validateName((String) ev.getName());
         if (!nameError.equals("")) {
             errors.add(nameError);
         }
 
         //パスワードのチェック
-        String passError = validatePassword(ev.getPassword(), passwordCheckFlag);
+        String passError = validatePassword((String) ev.getPassword(), passwordCheckFlag);
         if (!passError.equals("")) {
             errors.add(passError);
         }
@@ -49,21 +49,21 @@ public class EmployeeValidator {
     /**
      * 社員番号の入力チェックを行い、エラーメッセージを返却
      * @param service EmployeeServiceのインスタンス
-     * @param code 社員番号
+     * @param object 社員番号
      * @param codeDuplicateCheckFlag 社員番号の重複チェックを実施するかどうか(実施する:true 実施しない:false)
      * @return エラーメッセージ
      */
-    private static String validateCode(EmployeeService service, String code, Boolean codeDuplicateCheckFlag) {
+    private static String validateCode(EmployeeService service, Object object, Boolean codeDuplicateCheckFlag) {
 
         //入力値がなければエラーメッセージを返却
-        if (code == null || code.equals("")) {
+        if (object == null || object.equals("")) {
             return MessageConst.E_NOEMP_CODE.getMessage();
         }
 
         if (codeDuplicateCheckFlag) {
             //社員番号の重複チェックを実施
 
-            long employeesCount = isDuplicateEmployee(service, code);
+            long employeesCount = isDuplicateEmployee(service, object);
 
             //同一社員番号が既に登録されている場合はエラーメッセージを返却
             if (employeesCount > 0) {
@@ -77,12 +77,12 @@ public class EmployeeValidator {
 
     /**
      * @param service EmployeeServiceのインスタンス
-     * @param code 社員番号
+     * @param object 社員番号
      * @return 従業員テーブルに登録されている同一社員番号のデータの件数
      */
-    private static long isDuplicateEmployee(EmployeeService service, String code) {
+    private static long isDuplicateEmployee(EmployeeService service, Object object) {
 
-        long employeesCount = service.countByCode(code);
+        long employeesCount = service.countByCode(object);
         return employeesCount;
     }
 

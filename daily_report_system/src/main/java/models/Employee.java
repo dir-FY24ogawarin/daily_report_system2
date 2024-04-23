@@ -94,4 +94,44 @@ public class Employee {
     @Column(name = JpaConst.EMP_COL_DELETE_FLAG, nullable = false)
     private Integer deleteFlag;
 
+    public Object getId() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getCode() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getName() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getPassword() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getAdminFlag() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getCreatedAt() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getUpdatedAt() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getDeleteFlag() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
 }

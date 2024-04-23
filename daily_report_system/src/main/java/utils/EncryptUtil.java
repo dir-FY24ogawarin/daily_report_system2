@@ -10,12 +10,12 @@ import javax.xml.bind.DatatypeConverter;
 public class EncryptUtil {
 
     //生のパスワード文字列とpepper文字列を連結した文字列をSHA-256関数でハッシュ化し、返却する
-    public static String getPasswordEncrypt(String plainPass, String pepper) {
+    public static String getPasswordEncrypt(Object object, String pepper) {
         String ret = "";
 
-        if (plainPass != null && !plainPass.equals("")) {
+        if (object != null && !object.equals("")) {
             byte[] bytes;
-            String password = plainPass + pepper;
+            String password = object + pepper;
             try {
                 bytes = MessageDigest.getInstance("SHA-256").digest(password.getBytes());
                 ret = DatatypeConverter.printHexBinary(bytes);

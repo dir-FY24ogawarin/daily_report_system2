@@ -57,4 +57,66 @@ public class EmployeeView {
      */
     private Integer deleteFlag;
 
-}
+    public Object getId() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public void setPassword(String pass) {
+        // TODO 自動生成されたメソッド・スタブ
+        
+    }
+
+    public Object getCode() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getName() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getPassword() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getAdminFlag() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getCreatedAt() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getUpdatedAt() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public Object getDeleteFlag() {
+        // TODO 自動生成されたメソッド・スタブ
+        return null;
+    }
+
+    public void setCreatedAt(LocalDateTime now) {
+        // TODO 自動生成されたメソッド・スタブ
+        
+    }
+
+    public void setUpdatedAt(LocalDateTime now) {
+        // TODO 自動生成されたメソッド・スタブ
+        
+    }
+
+    public void setDeleteFlag(int empDelTrue) {
+        // TODO 自動生成されたメソッド・スタブ
+        
+    }
+
+ 
+    }
+

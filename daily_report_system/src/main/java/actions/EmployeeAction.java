@@ -3,6 +3,7 @@ package actions;
 import java.io.IOException;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.servlet.ServletException;
 
 import actions.views.EmployeeView;
@@ -15,6 +16,7 @@ import services.EmployeeService;
  * 従業員に関わる処理を行うActionクラス
  *
  */
+
 public class EmployeeAction extends ActionBase {
 
     private EmployeeService service;
@@ -39,6 +41,12 @@ public class EmployeeAction extends ActionBase {
      * @throws IOException
      */
     public void index() throws ServletException, IOException {
+        
+        putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
+        putRequestScope(AttributeConst.EMPLOYEE, new EmployeeView()); //空の従業員インスタンス
+
+        //新規登録画面を表示
+        forward(ForwardConst.FW_EMP_NEW);
 
         //指定されたページ数の一覧画面に表示するデータを取得
         int page = getPage();

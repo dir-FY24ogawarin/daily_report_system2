@@ -70,24 +70,24 @@ public class EmployeeService extends ServiceBase {
 
     /**
      * idを条件に取得したデータをEmployeeViewのインスタンスで返却する
-     * @param id
+     * @param object
      * @return 取得データのインスタンス
      */
-    public EmployeeView findOne(int id) {
-        Employee e = findOneInternal(id);
+    public EmployeeView findOne(Object object) {
+        Employee e = findOneInternal(object);
         return EmployeeConverter.toView(e);
     }
 
     /**
      * 社員番号を条件に該当するデータの件数を取得し、返却する
-     * @param code 社員番号
+     * @param object 社員番号
      * @return 該当するデータの件数
      */
-    public long countByCode(String code) {
+    public long countByCode(Object object) {
 
         //指定した社員番号を保持する従業員の件数を取得する
         long employees_count = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT_REGISTERED_BY_CODE, Long.class)
-                .setParameter(JpaConst.JPQL_PARM_CODE, code)
+                .setParameter(JpaConst.JPQL_PARM_CODE, object)
                 .getSingleResult();
         return employees_count;
     }
@@ -220,11 +220,11 @@ public class EmployeeService extends ServiceBase {
 
     /**
      * idを条件にデータを1件取得し、Employeeのインスタンスで返却する
-     * @param id
+     * @param object
      * @return 取得データのインスタンス
      */
-    private Employee findOneInternal(int id) {
-        Employee e = em.find(Employee.class, id);
+    private Employee findOneInternal(Object object) {
+        Employee e = em.find(Employee.class, object);
 
         return e;
     }
